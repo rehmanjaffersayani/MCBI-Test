@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import {SignupRoutingModule} from './signup/signup.routing'
 
 const routes: Routes = [];
 
