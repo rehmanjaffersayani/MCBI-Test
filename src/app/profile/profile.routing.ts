@@ -8,12 +8,7 @@ const routes: Routes = [
     {
         path: '',
         component: LoginComponent
-        // children: [
-        //     {
-                
-        //     },
-           
-        // ]
+       
     }
 ];
 
@@ -22,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SignupRoutingModule { }
+export class ProfileRoutingModule { }

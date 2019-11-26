@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Import Modules
 import { ImMaterialModule } from './im-material.module';
-import {SignupModule} from './signup/signup.module'
+import { ProfileModule} from './profile/profile.module'
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import {SignupModule} from './signup/signup.module'
     FormsModule, 
     ReactiveFormsModule,
     ImMaterialModule,
-    SignupModule
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

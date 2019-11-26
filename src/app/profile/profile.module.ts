@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ImMaterialModule} from '../im-material.module'
 
 //Import Component
 import {LoginComponent} from './login/login.component'
 
 //Routing
-import { SignupRoutingModule } from './signup.routing'
+import { ProfileRoutingModule } from './profile.routing'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SignupRoutingModule } from './signup.routing'
   ],
   imports: [
     CommonModule,
-    SignupRoutingModule
+    ProfileRoutingModule,
+    ImMaterialModule
   ]
 })
-export class SignupModule { }
+export class ProfileModule { }
