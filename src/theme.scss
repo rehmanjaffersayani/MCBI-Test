@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$mcbi-primary: mat-palette($mat-blue-grey);
+$mcbi-accent:  mat-palette($mat-pink, 500, 900, A100);
+$mcbi-warn:    mat-palette($mat-deep-orange);
+$mcbi-theme: mat-light-theme($mcbi-primary, $mcbi-accent, $mcbi-warn);
+
+@include angular-material-theme($mcbi-theme);
