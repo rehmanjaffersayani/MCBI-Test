@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ImMaterialModule} from '../im-material.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Import Component
 import {LoginComponent} from './login/login.component'
@@ -18,7 +19,9 @@ import { RegisterComponent } from './register/register.component'
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    ImMaterialModule
+    ImMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProfileModule { }

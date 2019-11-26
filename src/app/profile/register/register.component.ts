@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  reactiveForm: FormGroup;
+  
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.createForm();
+  }
+  
+  createForm() {
+    this.reactiveForm = this.fb.group({
+      name: [''],
+      email: [''],
+      password: ['']
+    });
   }
 
 }

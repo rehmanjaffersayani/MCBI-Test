@@ -19,6 +19,7 @@ import { ProfileModule} from './profile/profile.module'
     AppComponent,
     
     
+    
   ],
   imports: [
     BrowserModule,
