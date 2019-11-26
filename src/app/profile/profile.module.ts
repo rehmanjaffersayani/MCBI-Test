@@ -6,12 +6,14 @@ import {ImMaterialModule} from '../im-material.module'
 import {LoginComponent} from './login/login.component'
 
 //Routing
-import { ProfileRoutingModule } from './profile.routing'
+import { ProfileRoutingModule } from './profile.routing';
+import { RegisterComponent } from './register/register.component'
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
