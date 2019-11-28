@@ -1,28 +1,42 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-
+  
     <mat-card class="box">
         <mat-card-header>
             <mat-card-title>Register</mat-card-title>
         </mat-card-header>
-        <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="reactiveForm"  (ngSubmit)="onSubmit()">
             <mat-card-content>
                 <mat-form-field class="example-full-width">
-                    <input matInput class="input" placeholder="Name" type="text" formControlName="name">
+                    <input matInput class="input" placeholder="Username" type="text" formControlName="username">
+                    <mat-error  *ngIf="f.username.errors?.required">Username is required</mat-error>
+                    
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Name" class="input" type="text" formControlName="email">
+                    <input matInput placeholder="Email Address" class="input" type="text" formControlName="email">
+                    <mat-error  *ngIf="f.email.errors?.required">Email Address is required</mat-error>
+                    <mat-error  *ngIf="f.email.errors?.email">Email format mismatched</mat-error>
+      
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Name" class="input" type="password" formControlName="password">
+                    <input matInput placeholder="Password" class="input" type="password" formControlName="password">
+                    <mat-error  *ngIf="f.password.errors?.required">Password is required</mat-error>
+                    <mat-error *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Confirm Password" class="input" type="password" formControlName="confirmPassword" >
+                        <mat-error *ngIf="f.confirmPassword.errors?.required">Confirm Password is required</mat-error>
+                        <mat-error *ngIf="f.confirmPassword.errors?.mustMatch">Passwords must match</mat-error>
+                   
                 </mat-form-field>
 
 
 
 
             </mat-card-content>
-            <button mat-stroked-button color="accent" (click)="loggedin($event)" class="btn-block">Log in</button>
+            <button mat-stroked-button color="accent"  class="btn-block">Log in</button>
         </form>
         
 
