@@ -14,7 +14,7 @@ export class UserService {
 
 
     register(user) {
-        console.log("service")
+        
         return this.http.post(this.url+'users', user)
             .pipe(map(res => res ));
     }

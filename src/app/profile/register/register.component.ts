@@ -1,61 +1,75 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { HttpParams } from '@angular/common/http';
 //validator
 import {MustMatch} from './../../shared/custom.validator'
 
 //services
 import {UserService} from './../../services/_user.service'
-import { HttpParams } from '@angular/common/http';
+import {AlertService} from './../../shared/alert.service'
+ 
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers:[UserService]
+  providers:[UserService,AlertService]
 })
 export class RegisterComponent implements OnInit {
 
-  reactiveForm: FormGroup;
+  regForm: FormGroup;
   public foods;
   
-  constructor(private fb: FormBuilder, private userService:UserService) {}
+  constructor(private fb: FormBuilder, private userService:UserService,private _alertService:AlertService) {}
 
   ngOnInit() {
     this.createForm();
   }
   
   createForm() {
-    this.reactiveForm = this.fb.group({
-      username: ['',Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password:  ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+    this.regForm = this.fb.group({
+      username: [null,Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      password:  [null, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [null, Validators.required]
     }, {
       validator: MustMatch('password', 'confirmPassword')
   });
 
   }
-  get f() { return this.reactiveForm.controls; }
+  get f() { return this.regForm.controls; }
 
   onSubmit() {
   
   
-    console.log("button click")
+    if (this.regForm.invalid) {
+      return;
+  }
 
     const formData = new FormData();
 
 const payload = new HttpParams()
-  .set('username', this.reactiveForm.value.username)
-  .set('email', this.reactiveForm.value.email)
-  .set('password', this.reactiveForm.value.password);
+  .set('username', this.regForm.value.username)
+  .set('email', this.regForm.value.email)
+  .set('password', this.regForm.value.password);
   
- 
-        this.userService.register(payload).subscribe(
-            data => { this.foods = data},
-            err => console.error(err),
-            () => console.log('done loading foods')
-          );
+   
+
+        this.userService.register(payload)
+          .subscribe(data => {
+            if(data.success){
+              this._alertService.showAlert(data.message)
+
+            }else{
+              this._alertService.showAlert(data.message)
+            }
+          
+          },error => {
+            this._alertService.showAlert("An error occured. Unable to create Profile.")
+            
+          });
+
         }
 
 
