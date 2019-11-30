@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
+
+import { Event, ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 //validator
 import {MustMatch} from './../../shared/custom.validator'
 
@@ -19,9 +21,9 @@ import {AlertService} from './../../shared/alert.service'
 export class RegisterComponent implements OnInit {
 
   regForm: FormGroup;
-  public foods;
+ 
   
-  constructor(private fb: FormBuilder, private userService:UserService,private _alertService:AlertService) {}
+  constructor(private fb: FormBuilder, private userService:UserService,private _alertService:AlertService,private router:Router) {}
 
   ngOnInit() {
     this.createForm();
@@ -47,8 +49,6 @@ export class RegisterComponent implements OnInit {
       return;
   }
 
-    const formData = new FormData();
-
 const payload = new HttpParams()
   .set('username', this.regForm.value.username)
   .set('email', this.regForm.value.email)
@@ -58,11 +58,12 @@ const payload = new HttpParams()
 
         this.userService.register(payload)
           .subscribe(data => {
-            if(data.success){
-              this._alertService.showAlert(data.message)
+            if(data['success']){
+              this._alertService.showAlert(data['message'])
+              this.router.navigate(['/login']);
 
             }else{
-              this._alertService.showAlert(data.message)
+              this._alertService.showAlert(data['message'])
             }
           
           },error => {

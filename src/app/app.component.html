@@ -1,12 +1,6 @@
 
-
-<mat-toolbar color="primary" class="app-header">
-    <div><a href="https://www.mcbi.com.au/" target="_blank" ><img width="180" class="logo_image" src="./assets/images/logo.png"/></a></div>
-    <span class="nav-tool-items" fxFlex fxLayout fxLayoutAlign="flex-end">
-      <a mat-button mat-raised-button routerLink="login" routerLinkActive="active">Log in</a>
-      <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
-    </span>
-</mat-toolbar>
   
-
-<router-outlet></router-outlet>
+<app-toolbar></app-toolbar>
+<div class="router-div">
+    <router-outlet></router-outlet>
+  </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ImMaterialModule} from '../im-material.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //Import Component
 import {LoginComponent} from './login/login.component'
@@ -21,6 +22,7 @@ import { RegisterComponent } from './register/register.component'
     ProfileRoutingModule,
     ImMaterialModule,
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule
   ]
 })

@@ -6,26 +6,26 @@
         </mat-card-header>
         <form [formGroup]="regForm"  (ngSubmit)="onSubmit()">
             <mat-card-content>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="div-full">
                     <input matInput class="input" placeholder="Username" type="text" formControlName="username">
                     <mat-error  *ngIf="f.username.errors?.required">Username is required</mat-error>
                     
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="div-full">
                     <input matInput placeholder="Email Address" class="input" type="text" formControlName="email">
                     <mat-error  *ngIf="f.email.errors?.required">Email Address is required</mat-error>
                     <mat-error  *ngIf="f.email.errors?.email">Email format mismatched</mat-error>
       
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="div-full">
                     <input matInput placeholder="Password" class="input" type="password" formControlName="password">
                     <mat-error  *ngIf="f.password.errors?.required">Password is required</mat-error>
                     <mat-error *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="div-full">
                     <input matInput placeholder="Confirm Password" class="input" type="password" formControlName="confirmPassword" >
                         <mat-error *ngIf="f.confirmPassword.errors?.required">Confirm Password is required</mat-error>
                         <mat-error *ngIf="f.confirmPassword.errors?.mustMatch">Passwords must match</mat-error>

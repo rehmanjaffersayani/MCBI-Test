@@ -35,11 +35,17 @@ body {
 }
 
 body {
+  background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+ 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
+}
+.router-div{
+  height: 100%;
+
 }
 
 .app-header {
@@ -53,13 +59,8 @@ body {
 }
 .login-wrapper {
     height: 100%;
-   flex-direction: row; box-sizing: border-box; display: flex; place-content: center; align-items: center;
-  }
+   }
 
-.positronx {
-  text-decoration: none;
-  color: #ffffff;
-}
 
 .box {
   position: relative;
@@ -107,7 +108,7 @@ body {
   width: 100%;
 }
 
-.login-wrapper .example-full-width,
+.login-wrapper .div-full,
 .login-wrapper .btn-block {
   width: 100%;
 }
